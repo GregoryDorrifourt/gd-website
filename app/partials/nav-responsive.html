@@ -1,0 +1,9 @@
+<div ng-click="showMenuResp() " class="menu-switcher" ng-class="{'active':!menuOpenedResp}"  back-color="{{rColor}}">
+  <i class="fa" ng-class="{'fa-times':menuOpenedResp, 'fa-bars':!menuOpenedResp}"></i>
+</div>
+<ul collapse="!menuOpenedResp">
+  <li class="nav-items" back-color="{{rColor}}" ng-click="goto('',true)"><i class="fa fa-home"></i><span>Accueil</span></li>
+  <li class="nav-items" back-color="{{rColor}}" ng-click="goto('a-propos',true)"><i class="fa fa-user"></i><span>A propos</span></li>
+  <li class="nav-items" back-color="{{rColor}}" ng-click="goto('veille',true)"><i class="fa fa-heart"></i><span>Veille</span></li>
+  
+</ul>

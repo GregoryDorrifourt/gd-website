@@ -1,0 +1,74 @@
+<!-- liste des etapes -->
+<div class="board-header">
+  <div class="board-steps">
+    <div ng-repeat="cat in data" class="step-group {{isActiveStep($index) ? 'active':''}} col-sm-1">
+      <div class="step-indic"></div>
+      <div class="step-progress"><div class="barre" style="width:{{getStepProgression($index)}}"></div></div>
+    </div>
+    <div class="step-group solo">
+      <div class="step-indic"></div>
+    </div>  
+  </div>
+
+  <div class="board-step-icon">
+    <img ng-src="images/categories/{{currentData.cat}}.svg" alt="">
+  </div>
+  
+  <h2>{{currentSlide < 6 ? 'Planche de '+toLC(currentData.label)+' '+(currentSlide+1)+'/6':'Choix final'}}{{' - Sélectionnez '+currentData.phrase+' parmi les choix suivants'}}</h2>
+</div>
+<!-- content -->
+<div>
+  <ul class="board-panels col-sm-12 col-sm-offset-1">
+    <li ng-repeat="item in currentData.items" class="polaroid {{getPolaroidPos($index)}}" ng-if="isVisible($index)" polaroid>
+      <div class="img-container" back-img="{{'images/produits/'+item.id+'.jpg'}}">
+        <div class="overlay">
+          <div class="col-sm-7">
+            <div ng-click="showImg(item.id)">
+              <img src="images/loupe.svg" alt="" width="40" height="40">
+              <span>Agrandir</span>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <div ng-click="addToSelection($index)">
+              <img src="images/select.svg" alt="" width="40" height="40">
+              <span>Sélectionner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- selection -->
+<div class="board-selection toggleSlow" ng-if="selectedItems.length>0">
+  <div ng-if="isLastSlide()" class="flecheToggle fleche-choix-final"></div>
+  <div class="selection-header toggleSlow" ng-if="selectedItems.length<=6">
+
+    <div class="col-sm-2 selection-title"><div class="pointe"><img src="images/fleche-selection.svg" alt=""></div><h3 class="encart"><span>Votre</span><br/>sélection</h3></div>
+    <div ng-repeat="item in selectedItems" class="slideup col-sm-2"><img ng-src="{{'images/produits/'+item.id+'.jpg'}}" /></div>
+  </div>
+  <div ng-if="isLastSlide()" class="slideup">
+    <div>
+      <ul class="board-panels  col-sm-12 col-sm-offset-1">
+        <li ng-repeat="item in selectedItems" class="polaroid {{getPolaroidPos($index)}}" ng-if="isLastSlide()" polaroid>
+          <div class="img-container" back-img="{{'images/produits/'+item.id+'.jpg'}}">
+            <div class="overlay">
+              <div class="col-sm-7">
+                <div ng-click="showImg(item.id)">
+                  <img src="images/loupe.svg" alt="" width="40" height="40">
+                  <span>Agrandir</span>
+                </div>
+              </div>
+              <div class="col-sm-7">
+                <div ng-click="addToMoodboard($index)">
+                  <img src="images/select.svg" alt="" width="40" height="40">
+                  <span>Sélectionner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Projet Etude</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link href='//fonts.googleapis.com/css?family=Titillium+Web:200,300,600,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="scripts/components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+
+  <body ng-app="ipeaProjectApp" ng-controller="AppCtrl">
+    <div class="bg"></div>
+    <div class="container col-sm-14">
+      <div class="screen fadeScreen" id="home" ng-if="isPage('home')" >
+        <div ng-include="'views/main.html'" ng-controller="MainCtrl" ></div>
+      </div>
+      <div class="screen fadeScreen" id="board" ng-if="isPage('board')">
+        <div ng-include="'views/board.html'" ng-controller="BoardCtrl" ></div>
+      </div>
+      <div class="screen fadeScreen" id="moodboard" ng-if="isPage('moodboard')">
+        <div ng-include="'views/moodboard.html'" ></div>
+      </div>
+      <div class="screen fadeScreen" id="form" ng-if="isPage('form')">
+        <div ng-include="'views/form.html'" ng-controller="FormCtrl" ></div>
+      </div>
+    </div>
+    
+    <div ng-if="loading" class="loading fadeLoading"></div>
+
+    
+
+    <script type="text/ng-template" id="imageViewer.html">
+        <div class="modal-body">
+          <img ng-src="images/produits/{{id}}.jpg" alt="">
+        </div>
+    </script>
+
+    <script src="scripts/components/jquery/dist/jquery.js"></script>
+    <script src="scripts/components/angular/angular.js"></script>
+    <script src="scripts/components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="scripts/components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="scripts/components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="scripts/components/angular-animate/angular-animate.min.js"></script>
+    <script src="scripts/components/angular-aria/angular-aria.min.js"></script>
+    <script src="scripts/components/angular-resource/angular-resource.min.js"></script>
+    <script src="scripts/components/angular-touch/angular-touch.min.js"></script>
+    <script src="scripts/components/greensock-js/src/minified/TweenMax.min.js"></script>
+
+
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/animations/animations.js"></script>
+    <script src="scripts/controllers/controllers.js"></script>
+    <script src="scripts/directives/directives.js"></script>
+</body>  
+</html>

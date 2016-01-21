@@ -1,0 +1,15 @@
+<div class="veille-page">
+	<h1 class="fade-animate" ng-show="overlayClicked"><i class="fa fa-heart" text-color="{{rColor}}" ></i>Veille et inspiration</h1>
+	<div class="veille-content fade-animate" ng-show="overlayClicked">
+		<div class="diaporama" diaporama displayed="overlayClicked" color="rColor"></div>
+	</div>
+	<div class="veille-overlay fade-animate" ng-hide="overlayClicked">
+		<div>
+			<h1>Veille et inspiration</h1>
+			<div class="sep"></div>
+			<p>Recueil de sites, plugins ou frameworks qui ont attiré mon attention lors de mes navigations.</p>
+			<div class="sep"></div>
+			<a back-color="{{rColor}}" ng-click="overlayClicked = true">Naviguer</a>
+		</div>
+	</div>
+</div>

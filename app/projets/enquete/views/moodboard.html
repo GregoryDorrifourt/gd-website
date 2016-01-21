@@ -1,0 +1,13 @@
+<div class="moodboard-container">
+	<h1>Récapitulatif de vos choix</h1>
+	<div class="hr_sep"></div>
+
+	<a ng-click="setPage('form')" title="Etape suivante" class="btn-moodboard" >Etape suivante</a>
+
+	<ul class="moodboard-panels col-sm-12 col-sm-offset-1">
+	    <li ng-repeat="item in moodboard" class="polaroid polaroid-moodboard" polaroid>
+	      <div class="img-container" back-img="{{'images/produits/'+item.id+'.jpg'}}"></div>
+	    </li>
+	</ul>
+</div>
+
